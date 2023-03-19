@@ -41,7 +41,7 @@ return [
      *
      */
     'ErrorEmail' => [
-        'email' => true,
+        'email' => env('EMAIL_EXCEPTION_ENABLED', false),
         'dontEmail' => [],
         'throttle' => true,
         'throttleCacheDriver' => env('CACHE_DRIVER', 'file'),
@@ -50,8 +50,8 @@ return [
         'globalThrottle' => true,
         'globalThrottleLimit' => 20,
         'globalThrottleDurationMinutes' => 30,
-        'toEmailAddress' => null,
-        'fromEmailAddress' => null,
-        'emailSubject' => null
+        'toEmailAddress' => env('EMAIL_EXCEPTION_TO'),
+		'fromEmailAddress' => env('EMAIL_EXCEPTION_FROM'),
+		'emailSubject' => env('EMAIL_EXCEPTION_SUBJECT')
     ]
 ];
